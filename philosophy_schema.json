@@ -35,22 +35,8 @@
             "items": {"type": "string"}
         },
         "image_url": {"type": "string"},
-        "birth_location": {
-            "type": "object",
-            "properties": {
-                "location_name": {"type": "string"},
-                "latitude": {"type": "number"},
-                "longitude": {"type": "number"}
-            }
-        },
-        "death_location": {
-            "type": "object",
-            "properties": {
-                "location_name": {"type": "string"},
-                "latitude": {"type": "number"},
-                "longitude": {"type": "number"}
-            }
-        },
+        "birth_location": {"type": ["object", "null"], "properties": {"location_name": {"type": "string"}, "latitude": {"type": "number"}, "longitude": {"type": "number"}}},
+        "death_location": {"type": ["object", "null"], "properties": {"location_name": {"type": "string"}, "latitude": {"type": "number"}, "longitude": {"type": "number"}}},
         "major_events": {
             "type": "array",
             "items": {

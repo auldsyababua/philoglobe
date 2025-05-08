@@ -1,4 +1,8 @@
 {
     "name": "use consistent",
-    "birth_year": null
+    "birth_year": null,
+    "death_year": null,
+    "birth_location": null,
+    "death_location": null,
+    "major_events": []
 }

@@ -30,9 +30,17 @@ This project aims to parse a philosophy textbook to create JSON objects that con
    python3 extract_epub.py
    ```
 
-2. **Check Outputs**
+2. **Named Entity Recognition**
 
-   JSON files will be generated in the `outputs` directory.
+   The script uses the `dslim/bert-base-NER` model from Hugging Face to extract philosopher names from the text.
+
+3. **Check Outputs**
+
+   JSON files will be generated in the `outputs` directory, each representing a philosopher with fields conforming to the updated schema.
+
+## Current Focus
+
+The current focus is on improving the text parsing process to accurately extract structured data from the textbook. This involves refining the parsing logic and potentially leveraging additional AI models to enhance accuracy.
 
 ## Contributing
 

@@ -64,10 +64,44 @@ with open('philosophy_schema.json', 'r') as schema_file:
 # Ensure the outputs directory exists
 os.makedirs('outputs', exist_ok=True)
 
+def create_json_objects(text, schema):
+    # Example pattern to match philosopher entries
+    pattern = re.compile(r"(\w+\s\w+)(\s\d{3,4})?")
+    matches = pattern.findall(text)
+    philosophers = []
+
+    for match in matches:
+        name, year = match
+        philosopher_data = {
+            "name": name.strip(),
+            "birth_year": int(year) if year else None,
+            "death_year": None,  # Placeholder, to be enriched later
+            "birth_location": None,  # Placeholder
+            "death_location": None,  # Placeholder
+            "major_events": [],  # Placeholder
+            # Add more fields as needed
+        }
+        # Validate against schema
+        try:
+            validate(instance=philosopher_data, schema=schema)
+            philosophers.append(philosopher_data)
+        except Exception as e:
+            print(f"Validation error for {name}: {e}")
+
+    return philosophers
+
 # Example usage
 with open(output_file_path, "r", encoding="utf-8") as file:
     text_content = file.read()
     # Use NER to extract philosopher names
     philosopher_names = extract_entities(text_content)
     print(philosopher_names)  # For demonstration purposes
-    # Further processing can be done to create JSON objects
+    # Create JSON objects
+    philosophers = create_json_objects(text_content, schema)
+    
+    # Save JSON objects
+    for i, philosopher in enumerate(philosophers):
+        output_path = os.path.join('outputs', f'philosopher_{i}.json')
+        with open(output_path, 'w', encoding='utf-8') as json_file:
+            json.dump(philosopher, json_file, ensure_ascii=False, indent=4)
+        print(f'Saved: {output_path}')  # For demonstration purposes

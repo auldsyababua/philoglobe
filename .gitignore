@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+env/
+venv/
+
+# macOS
+.DS_Store
+
+# Output files
+outputs/
+
+# Lock files
+*.lock
+
+# Logs
+*.log
+
+# Other
+*.swp
+*.swo 

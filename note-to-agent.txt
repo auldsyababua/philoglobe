@@ -1,0 +1,22 @@
+# Note to Agent
+
+## Current State
+
+The project is set up to parse a philosophy textbook in EPUB format and extract structured data into JSON objects. The script uses a BERT model for named entity recognition to identify philosopher names and other relevant entities. The JSON schema has been updated to allow null values for certain fields, enabling future data enrichment.
+
+## Next Steps
+
+1. **Improve Text Parsing**: Focus on refining the parsing logic to accurately extract structured data from the textbook. This may involve leveraging additional AI models to enhance accuracy.
+
+2. **Data Enrichment**: Once parsing is improved, use external sources like Wikipedia and Wikidata to fill in missing details for philosophers, such as birth and death locations, schools of thought, and major events.
+
+3. **Geocoding**: Convert location names into latitude and longitude coordinates for mapping purposes.
+
+4. **API Development**: Develop APIs to serve the data to a frontend application for visualization.
+
+5. **Visualization**: Create an interactive Google Earth timeline web app to visualize the migration of philosophical ideas over time.
+
+## Additional Notes
+
+- The outputs directory contains JSON files for each philosopher extracted from the text.
+- The README has been updated to reflect the latest changes, including the use of the BERT model for NER and the updated JSON schema. 
